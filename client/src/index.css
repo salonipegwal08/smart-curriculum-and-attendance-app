@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded px-3 py-2 text-sm font-medium transition-colors;
+  }
+  .btn-primary {
+    @apply btn bg-brand-600 text-white hover:bg-brand-700;
+  }
+  .btn-outline {
+    @apply btn border border-brand-600 text-brand-700 hover:bg-brand-50 dark:text-brand-300 dark:border-brand-400;
+  }
+  .chip {
+    @apply inline-block rounded px-2 py-1 text-xs font-medium;
+  }
+  .chip-success { @apply chip bg-green-100 text-green-700; }
+  .chip-danger { @apply chip bg-red-100 text-red-700; }
+  .chip-warning { @apply chip bg-yellow-100 text-yellow-700; }
+}
