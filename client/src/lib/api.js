@@ -1,7 +1,7 @@
-// import axios from "axios";
+import axios from "axios";
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL
+  baseURL: "https://smart-curriculum-and-attendance-app-4nbr.onrender.com/api"
 });
 
 api.interceptors.request.use((config) => {
