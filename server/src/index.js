@@ -19,7 +19,11 @@ dotenv.config();
 const app = express();
 // app.use(cors());
 app.use(cors({
-  origin: ["http://localhost:3000", "https://your-vercel-app.vercel.app"],
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "https://smart-curriculum-and-attendance-app-hazel.vercel.app"
+  ],
   credentials: true
 }));
 app.use(express.json());
