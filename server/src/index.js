@@ -17,7 +17,10 @@ import usersRouter from "./routes/users.js";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: "*"
+}));
 app.use(express.json());
 app.use(morgan("dev"));
 
@@ -42,8 +45,17 @@ app.use("/api/users", usersRouter);
 
 const { MONGO_URI } = process.env;
 
+// if (MONGO_URI) {
+//   mongoose.connect(MONGO_URI).catch(() => {});
+// }
+
 if (MONGO_URI) {
-  mongoose.connect(MONGO_URI).catch(() => {});
+  mongoose.connect(MONGO_URI)
+    .then(() => console.log("MongoDB Connected"))
+    .catch((err) => console.log("MongoDB Error:", err));
 }
 
-app.listen(PORT, () => {});
+// app.listen(PORT, () => {});
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
